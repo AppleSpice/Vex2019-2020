@@ -87,9 +87,9 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
-        LeftWheels.spin(directionType::fwd, Controller1.Axis3.value(), velocityUnits::pct);      //    
-        RightWheels.spin(directionType::fwd, Controller1.Axis2.value(), velocityUnits::pct);     //main driving  
-        StrafingWheels.spin(directionType::fwd, Controller1.Axis4.value(), velocityUnits::pct);  //       
+        LeftWheels.spin(directionType::fwd, Controller1.Axis3.value()/2.5, velocityUnits::pct);      //    
+        RightWheels.spin(directionType::fwd, Controller1.Axis2.value()/2.5, velocityUnits::pct);     //main driving  
+        StrafingWheels.spin(directionType::fwd, Controller1.Axis4.value()/2.5, velocityUnits::pct);  //       
 
         if(Controller1.ButtonL1.pressing()) {
             ClawMotor.spin(directionType::fwd, 50, velocityUnits::pct); //open claw
@@ -98,7 +98,7 @@ void usercontrol(void) {
             ClawMotor.spin(directionType::rev, 50, velocityUnits::pct); //close claw
         }
         else {
-            ClawMotor.stop(brakeType::brake);
+            ClawMotor.stop(brakeType::hold);
         }
         if(Controller1.ButtonR1.pressing()) {
             LiftMotor.spin(directionType::fwd, 50, velocityUnits::pct); //lift arm up 
@@ -109,8 +109,8 @@ void usercontrol(void) {
             LiftMotor2.spin(directionType::fwd, 50, velocityUnits::pct); //brings arm down2
         }
         else {
-            LiftMotor.stop(brakeType::brake);   
-            LiftMotor2.stop(brakeType::brake);     
+            LiftMotor.stop(brakeType::hold);   
+            LiftMotor2.stop(brakeType::hold);     
         }
       
 
