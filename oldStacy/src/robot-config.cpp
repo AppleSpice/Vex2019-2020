@@ -14,6 +14,7 @@ motor StrafingWheels = motor(PORT3, ratio18_1, false);
 motor ClawMotor = motor(PORT4, ratio18_1, false);
 motor LiftMotor = motor(PORT8, ratio36_1, true);
 controller Controller1 = controller(primary);
+motor LiftMotor2 = motor(PORT7, ratio36_1, true);
 
 // VEXcode generated functions
 // define variables used for controlling motors based on controller inputs

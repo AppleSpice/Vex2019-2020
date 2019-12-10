@@ -16,6 +16,7 @@
 // ClawMotor            motor         4               
 // LiftMotor            motor         8               
 // Controller1          controller                    
+// LiftMotor2           motor         7               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -90,23 +91,26 @@ void usercontrol(void) {
         RightWheels.spin(directionType::fwd, Controller1.Axis2.value(), velocityUnits::pct);     //main driving  
         StrafingWheels.spin(directionType::fwd, Controller1.Axis4.value(), velocityUnits::pct);  //       
 
-        if(Controller1.ButtonR1.pressing()) {
-            ClawMotor.spin(directionType::fwd, 30, velocityUnits::pct); //open claw
+        if(Controller1.ButtonL1.pressing()) {
+            ClawMotor.spin(directionType::fwd, 50, velocityUnits::pct); //open claw
         }
-        else if(Controller1.ButtonR2.pressing()) {
-            ClawMotor.spin(directionType::rev, 30, velocityUnits::pct); //close claw
+        else if(Controller1.ButtonL2.pressing()) {
+            ClawMotor.spin(directionType::rev, 50, velocityUnits::pct); //close claw
         }
         else {
             ClawMotor.stop(brakeType::brake);
         }
-        if(Controller1.ButtonL1.pressing()) {
-            LiftMotor.spin(directionType::fwd, 100, velocityUnits::pct); //lift left arm up 
+        if(Controller1.ButtonR1.pressing()) {
+            LiftMotor.spin(directionType::fwd, 50, velocityUnits::pct); //lift arm up 
+            LiftMotor2.spin(directionType::fwd, 50, velocityUnits::pct); //lift arm up 
         }
-        else if(Controller1.ButtonL2.pressing()) {
-            LiftMotor.spin(directionType::rev, 50, velocityUnits::pct); //brings left arm down
+        else if(Controller1.ButtonR2.pressing()) {
+            LiftMotor.spin(directionType::rev, 50, velocityUnits::pct); //brings arm down
+            LiftMotor2.spin(directionType::fwd, 50, velocityUnits::pct); //brings arm down2
         }
         else {
-            LiftMotor.stop(brakeType::brake);        
+            LiftMotor.stop(brakeType::brake);   
+            LiftMotor2.stop(brakeType::brake);     
         }
       
 

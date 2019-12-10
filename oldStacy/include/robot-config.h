@@ -9,6 +9,7 @@ extern motor StrafingWheels;
 extern motor ClawMotor;
 extern motor LiftMotor;
 extern controller Controller1;
+extern motor LiftMotor2;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.
